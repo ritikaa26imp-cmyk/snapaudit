@@ -1,0 +1,120 @@
+# SnapAudit — category policies for match / mismatch / can't say
+#
+# This file is loaded fresh on every inference request. Editing these rules
+# takes effect immediately; you do not need to restart the application.
+#
+# -----------------------------------------------------------------------------
+
+visibility_definitions:
+  visible: "product occupies ≥30% of frame, key attributes clearly discernible"
+  partial: "product present but key attributes partially obscured"
+  not_visible: "product cannot be assessed - only packaging, blank surface, or too dark/blurred"
+
+categories:
+  saree:
+    colour:
+      match: "Same primary colour family; minor tonal variation from lighting allowed"
+      mismatch: "Different colour family entirely"
+      cant_say: "Heavy colour cast; extreme overexposure"
+    design:
+      match: "Same weave type AND same print style (plain/printed/embroidered)"
+      mismatch: "Different weave type OR different print style"
+      cant_say: "Only a small corner of fabric visible"
+    category:
+      match: "6-yard fabric; pallu or border structure identifiable"
+      mismatch: "Clearly a different garment type"
+      cant_say: "Tightly packed; no fabric visible"
+    quantity:
+      match: "Single saree in both sets"
+      mismatch: "Set in one, single in other"
+      cant_say: "Packaging obscures count"
+
+  kurti:
+    colour:
+      match: "Same primary body colour"
+      mismatch: "Different primary body colour"
+      cant_say: "Extreme shadow covers the garment"
+    design:
+      match: "Same neckline type AND same surface treatment (plain/printed/embroidered)"
+      mismatch: "Different neckline OR different surface treatment"
+      cant_say: "Only back or side visible; neckline not visible"
+    category:
+      match: "Short or long top; kurti silhouette identifiable"
+      mismatch: "Saree, dupatta, trouser, or other garment type"
+      cant_say: "Garment crumpled and unidentifiable"
+    quantity:
+      match: "Same piece count (single vs single, set vs same set size)"
+      mismatch: "Set returned as single; or mismatch in piece count"
+      cant_say: "Folded stack; count unclear"
+
+  bag:
+    colour:
+      match: "Same colour family"
+      mismatch: "Different colour family"
+      cant_say: "Dark image; colour unresolvable"
+    design:
+      match: "Same bag type (handbag/backpack/clutch) AND same hardware tone"
+      mismatch: "Different bag type OR clearly different hardware"
+      cant_say: "Only bottom or side of bag visible"
+    category:
+      match: "Bag silhouette identifiable; handle or strap and face present"
+      mismatch: "Non-bag item returned"
+      cant_say: "Item fully wrapped; not identifiable"
+    quantity:
+      match: "Single bag in both sets"
+      mismatch: "Multiple bags vs one; or no bag present"
+      cant_say: "Multiple items visible; unclear which are bags"
+
+  cloth:
+    colour:
+      match: "Same primary colour AND same secondary colour if dual-tone"
+      mismatch: "Different primary colour"
+      cant_say: "Extreme shadow or overexposure"
+    design:
+      match: "Same motif type (solid/geometric/floral/embossed)"
+      mismatch: "Different motif type"
+      cant_say: "Only a corner of the item visible"
+    category:
+      match: "Flat textile item identifiable"
+      mismatch: "Non-textile returned"
+      cant_say: "Folded so densely texture is not visible"
+    quantity:
+      match: "Same piece count (2-piece towel set, etc.)"
+      mismatch: "Count differs"
+      cant_say: "Stack only partially visible"
+
+  jewellery:
+    colour:
+      match: "Same metal tone (gold/silver/rose gold) AND same stone colour"
+      mismatch: "Different metal tone OR different stone colour"
+      cant_say: "Heavy glare; white balance extreme"
+    design:
+      match: "Same jewellery sub-type (necklace/earring/bangle/ring) AND same setting style"
+      mismatch: "Different sub-type OR clearly different design motif"
+      cant_say: "Very small image; detail not resolvable"
+    category:
+      match: "Jewellery piece identifiable as such"
+      mismatch: "Non-jewellery item returned"
+      cant_say: "Item inside closed box or opaque pouch"
+    quantity:
+      match: "Same piece count (pair of earrings=2; necklace set=stated count)"
+      mismatch: "Count differs"
+      cant_say: "Multiple pieces tangled; count unclear"
+
+  watch:
+    colour:
+      match: "Same case colour AND same strap colour"
+      mismatch: "Different case or strap colour"
+      cant_say: "Image too small or washed out"
+    design:
+      match: "Same case shape (round/square/rectangular) AND same dial style"
+      mismatch: "Different case shape OR clearly different dial"
+      cant_say: "Watch rear shown only; dial not visible"
+    category:
+      match: "Watch silhouette clear; strap and case structure present"
+      mismatch: "Non-watch returned (bracelet, bangle)"
+      cant_say: "Item partially visible; strap only shown"
+    quantity:
+      match: "Single watch in both sets"
+      mismatch: "Multiple watches vs one; or no watch"
+      cant_say: "Packaging with multiple items; unclear"

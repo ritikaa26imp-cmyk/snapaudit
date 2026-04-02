@@ -1,0 +1,40 @@
+# =============================================================================
+# SnapAudit — Python dependencies
+# =============================================================================
+# Install: pip install -r requirements.txt
+# Pin versions for reproducible builds; bump intentionally when upgrading.
+# =============================================================================
+
+# --- Web API ---
+# FastAPI: async HTTP framework and OpenAPI docs.
+fastapi>=0.115.0,<1.0.0
+# Uvicorn: ASGI server (use [standard] for websockets, uvloop, httptools).
+uvicorn[standard]>=0.32.0,<1.0.0
+
+# --- Images ---
+# Pillow: open, resize, and validate uploaded images.
+Pillow>=11.0.0,<12.0.0
+
+# --- Database ---
+# aiosqlite: asyncio-friendly SQLite (used with FastAPI async routes).
+aiosqlite>=0.20.0,<1.0.0
+
+# --- Configuration ---
+# PyYAML: load this repo's config.yaml and policy YAML files.
+PyYAML>=6.0.2,<7.0.0
+
+# --- HTTP client ---
+# httpx: async HTTP calls to the Ollama REST API.
+httpx>=0.28.0,<1.0.0
+
+# --- Validation ---
+# pydantic: request/response models and settings (FastAPI integrates tightly).
+pydantic>=2.10.0,<3.0.0
+
+# --- Multipart uploads ---
+# python-multipart: parse multipart/form-data for file uploads in FastAPI.
+python-multipart>=0.0.20,<1.0.0
+
+# --- Testing ---
+# pytest: unit and integration tests.
+pytest>=8.3.0,<9.0.0

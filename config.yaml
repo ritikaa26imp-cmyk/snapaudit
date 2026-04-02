@@ -1,0 +1,58 @@
+# =============================================================================
+# SnapAudit — master configuration
+# =============================================================================
+# Edit values here to tune behavior without changing code. Restart the app
+# after changes (or reload if your deployment supports hot reload).
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Vision model (Ollama)
+# -----------------------------------------------------------------------------
+# Single switch: set this to one of the keys under `models` below.
+# Example: gemma3:4b for speed, qwen2.5vl:7b for best accuracy.
+active_model: "qwen2.5vl:7b"
+
+# Catalog of models SnapAudit knows about. Each entry is the Ollama tag name
+# plus a short human-readable description for UI or docs.
+models:
+  "qwen2.5vl:7b":
+    description: "Best accuracy, 6GB."
+  "gemma3:4b":
+    description: "Fastest, 3.3GB."
+  "llava:7b":
+    description: "Baseline, 4.7GB."
+
+# Ollama HTTP API (default local install).
+ollama_base_url: "http://localhost:11434"
+
+# -----------------------------------------------------------------------------
+# Image sets (per audit / comparison)
+# -----------------------------------------------------------------------------
+# Minimum and maximum number of images allowed in one uploaded set.
+min_images_per_set: 2
+max_images_per_set: 3
+
+# Reject uploads larger than this (megabytes).
+max_file_size_mb: 10
+
+# Longest edge (or square side) for resizing before sending to the model.
+# Lower = faster and less memory; higher = more detail.
+image_resize: 448
+
+# -----------------------------------------------------------------------------
+# Persistence & retention
+# -----------------------------------------------------------------------------
+# SQLite database path (relative to project root or absolute).
+audit_db_path: "snapaudit/audit/snapaudit.db"
+
+# How long to keep audit records (days). Older rows may be pruned by a job.
+audit_retention_days: 90
+
+# How long to keep application logs (days).
+log_retention_days: 365
+
+# -----------------------------------------------------------------------------
+# User input
+# -----------------------------------------------------------------------------
+# Maximum length for free-text user prompts (characters).
+max_user_prompt_chars: 500

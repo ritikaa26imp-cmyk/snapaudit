@@ -1,0 +1,28 @@
+/* SnapAudit UI — minimal base; page components use inline styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+#root {
+  min-height: 100vh;
+  text-align: left;
+  max-width: none;
+  margin: 0;
+  border: none;
+}
+
+h1,
+h2 {
+  margin: 0;
+}

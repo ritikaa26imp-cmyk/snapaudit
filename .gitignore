@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.db
+snapaudit/audit/*.db
+node_modules/
+snapaudit/ui/dist/
+snapaudit/ui/node_modules/
+.DS_Store
+*.egg-info/
+.pytest_cache/
