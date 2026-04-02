@@ -144,6 +144,8 @@ GET  /api/v1/health           Health check and active model name
 ---
 
 ## Project structure
+
+```
 snapaudit/
 ├── main.py                      FastAPI app entry point
 ├── config.yaml                  Model selection and all settings
@@ -155,6 +157,7 @@ snapaudit/
 │   ├── pipeline/                Validator, preprocessor, rollup, confidence, orchestrator
 │   └── audit/                   SQLite audit log
 └── snapaudit/ui/                React + Vite frontend (5 screens)
+```
 
 ---
 
